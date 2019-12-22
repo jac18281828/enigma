@@ -1,3 +1,6 @@
 cmake_minimum_required(VERSION 2.8.9)
+set(CMAKE_VERBOSE_MAKEFILE on)
+SET(CMAKE_CXX_FLAGS_RELEASE -O3)
+add_compile_options(-std=c++0x)
 project (enigma)
-add_executable(enigma enigma.cc main.cc)
+add_executable(enigma src/enigma.h src/enigma.cc src/main.cc)
