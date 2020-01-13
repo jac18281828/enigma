@@ -1,23 +1,17 @@
-#include <unistd.h>
+#include <cstdlib>
 #include <iostream>
 
-#include "enigma.h"
+#include "enigma3.h"
 
 using namespace std;
 
-int main(int argc, char *argv[]) {
+int main(const int argc, char const* argv[]) {
 
-    secret::enigma e("ABC");
+    secret::enigma3 e("IVR");
 
     for(int i=1; i<argc; i++) {
         std::cout << e.crypt(argv[i]) << std::endl;
     }
-
-    /*
-    for(int i=0; i<1000000; i++) {
-        e.crypt("ORANGE ORANGE PINEAPPLE ORANGE");
-    }
-    */
 
     return EXIT_SUCCESS;
 }

@@ -1,22 +1,30 @@
-#include "enigma.h"
+#include <ctype.h>
+
+#include "enigma3.h"
 
 using namespace secret;
 
-const std::string enigma::alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const std::string enigma3::alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-const std::string enigma::rotor[3] = {
+const std::string enigma3::rotor[3] = {
     "EKMFLGDQVZNTOWYHXUSPAIBRCJ",
     "AJDKSIRUXBLHWTMCQGZNPYFVOE",
     "BDFHJLCPRTXVZNYEIWGAKMUSQO"
 }; 
 
-const std::string enigma::reflector = "YRUHQSLDPXNGOKMIEBFZCWVJAT";
+const std::string enigma3::reflector = "YRUHQSLDPXNGOKMIEBFZCWVJAT";
 
-enigma::enigma(std::string const& key) : key(key) {
+enigma3::enigma3(std::string const& key) : key(key) {
     
 }
 
-std::string enigma::crypt(std::string const& ct) {
+// issues
+// rotors are constant - not variable
+// only R is being rotated
+// lookup is linear search
+// no tests
+
+std::string enigma3::crypt(std::string const& ct) {
 
     int const L = li(key[0]);
     int const M = li(key[1]);
@@ -26,7 +34,9 @@ std::string enigma::crypt(std::string const& ct) {
 
     for(std::string::const_iterator x = ct.begin(); x != ct.end(); ++x) {
 
-        int const ct_letter = li(*x);
+        const char X = ::toupper(*x);
+
+        const int ct_letter = li(X);
 
         R = static_cast<int>(mod26(R + 1));
 

@@ -4,14 +4,14 @@
 
 namespace secret {
 
-    class enigma {
+    class enigma3 {
     private:
         
         static const std::string alpha;
         static const std::string rotor[3];
         static const std::string reflector;
 
-        std::string key;
+        const std::string key;
 
         inline int mod26(const int a) {
             return (a%26+26)%26;
@@ -22,7 +22,7 @@ namespace secret {
         }
         
     public:
-        enigma(std::string const& key);
+        enigma3(std::string const& key);
         
         std::string crypt(std::string const& ct);
     };
