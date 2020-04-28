@@ -1,0 +1,10 @@
+os: linux
+
+branches:
+  only:
+  - master
+
+language: c++
+
+- cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_VERBOSE_MAKEFILE=True "-GUnix Makefiles"
+- (cd build && make -j2)
