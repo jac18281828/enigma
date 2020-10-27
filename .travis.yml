@@ -7,6 +7,6 @@ branches:
 language: c++
 
 script:
-- cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_VERBOSE_MAKEFILE=True "-GUnix Makefiles"
+- cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_VERBOSE_MAKEFILE=on "-GUnix Makefiles"
 - (cd build && make -j)
 - (cd build && make test)
