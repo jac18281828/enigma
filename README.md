@@ -1,4 +1,4 @@
 # enigma
 Enigma cipher c++
 
-Trivial enigma cipher implementation in C++
+Enigma cipher implementation in C++

@@ -14,15 +14,12 @@ const std::string enigma3::rotor[3] = {
 
 const std::string enigma3::reflector = "YRUHQSLDPXNGOKMIEBFZCWVJAT";
 
-enigma3::enigma3(std::string const& key) : key(key) {
-    
-}
+enigma3::enigma3(std::string const& key) : key(key) { }
 
 // issues
 // rotors are constant - not variable
 // only R is being rotated
 // lookup is linear search
-// no tests
 
 std::string enigma3::crypt(std::string const& ct) {
 
